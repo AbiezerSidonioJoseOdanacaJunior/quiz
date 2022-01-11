@@ -9,7 +9,7 @@ const questoes: QuestoesModel[] = [
         RespostasModel.certa('Barbeiro'),
     ]), 
 
-    new QuestaoModel(306, 'Qual fruta conhecida no Nrte e Nordeste como "Jerimum"?', [
+    new QuestaoModel(202, 'Qual fruta conhecida no Nrte e Nordeste como "Jerimum"?', [
         RespostasModel.errada('Cajú'),
         RespostasModel.errada('Coco'),
         RespostasModel.errada('Cochum'),
