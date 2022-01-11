@@ -14,7 +14,21 @@ const questoes: QuestoesModel[] = [
         RespostasModel.errada('Coco'),
         RespostasModel.errada('Cochum'),
         RespostasModel.certa('Abobra'),
-    ]) 
+    ]),
+
+    new QuestaoModel(203, 'Qual é o colectivo de cães?', [
+        RespostasModel.errada('Mandanda'),
+        RespostasModel.errada('Alcateia'),
+        RespostasModel.errada('Rebanho'),
+        RespostasModel.certa('Matilha'),
+    ]),
+
+    new QuestaoModel(204, 'Qual é o Triângulo que tem todos os lados diferentes?', [
+        RespostasModel.errada('Equilátero'),
+        RespostasModel.errada('Isóceles'),
+        RespostasModel.errada('Trapézio'),
+        RespostasModel.certa('Escaleno'),
+    ])
 ]
 
 export default questoes
