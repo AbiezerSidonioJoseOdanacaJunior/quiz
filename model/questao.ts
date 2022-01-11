@@ -36,4 +36,13 @@ export default class QuestaoModel {
         }
         return false
     }
+
+    toObject() {
+        return {
+            id: this.#id,
+            enuciado: this.#enuciado,
+            respostas: this.#respostas.map(resp => resp.toObject()),
+            acertou: this.acertou,
+        }
+    }
 }

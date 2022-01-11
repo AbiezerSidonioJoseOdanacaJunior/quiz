@@ -29,4 +29,12 @@ export default class RespostasModel {
     get revelada() {
         return this.#revelada
     }
+
+    toObject() {
+        return {
+         valor: this.#valor,
+         certa: this.#certa,
+         revelada: this.#revelada
+        }
+    }
 }
