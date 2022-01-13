@@ -1,7 +1,7 @@
 import QuestaoModel from "../../../model/questao"
 import RespostasModel from "../../../model/respostas"
 
-const questoes: QuestoesModel[] = [
+const questoes: QuestaoModel[] = [
     new QuestaoModel(306, 'Qual biciho transmite a doença de Chagas?', [
         RespostasModel.errada('Abelha'),
         RespostasModel.errada('Barata'),
