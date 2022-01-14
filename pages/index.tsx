@@ -13,8 +13,16 @@ const questaoMock = new QuestaoModel(1, "Melhor cor?", [
 export default function Home() {
   const [questao, setQeustao] = useState(questaoMock)
   
+
   function  respostaFornecida(indice: number) {
     setQeustao(questao.responderCom(indice))
+  }
+
+  function  tempoEsgotado() {
+    if(questao.naoRespondida){
+      setQeustao(questao.responderCom(-1))
+    }
+    
   }
 
   return (
@@ -27,7 +35,8 @@ export default function Home() {
       }}
     >
       <Questao valor={questao}
-      respostaFornecida={respostaFornecida} />
+      respostaFornecida={respostaFornecida}
+      tempoEsgotado={tempoEsgotado} />
     </div>
   );
 }
