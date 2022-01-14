@@ -6,6 +6,7 @@ import Temporizador from './Temporizador'
 
 interface QuestaoProps {
     valor: QuestaoModel
+    tempoResposta?: number
     respostaFornecida: (indice: number) => void
     tempoEsgotado: () => void
 }
@@ -36,7 +37,7 @@ export default function Questao(props) {
     return(
         <div className={styles.questao}>
            <Enuciado texto={questao.enuciado}/>
-           <Temporizador duracao={10} tempoEsgotado={props.tempoEsgotado} />
+           <Temporizador duracao={props.tempoResposta ?? 10} tempoEsgotado={props.tempoEsgotado} />
             {renderizarRespostas() }        
         </div>
     )

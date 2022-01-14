@@ -35,6 +35,7 @@ export default function Home() {
       }}
     >
       <Questao valor={questao}
+      tempoResposta={5}
       respostaFornecida={respostaFornecida}
       tempoEsgotado={tempoEsgotado} />
     </div>
