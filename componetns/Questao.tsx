@@ -7,6 +7,13 @@ interface QuestaoProps {
     valor: QuestaoModel
 }
 
+const letras = [
+    { valor: 'A', cor: '#f2c866'},
+    { valor: 'B', cor: '#f266ba'},
+    { valor: 'C', cor: '#85d4f2'},
+    { valor: 'D', cor: '#bce596'},
+]
+
 export default function Questao(props) {
     const questao = props.valor 
 
@@ -16,8 +23,8 @@ export default function Questao(props) {
                 key={i}
                 valor={resposta}
                 indice={i}
-                letra='A'
-                corletra='#f2c866'
+                letra={letras[i].valor}
+                corletra={letras[i].cor}
              />
         })
     }
