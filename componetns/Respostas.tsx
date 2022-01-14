@@ -16,7 +16,8 @@ export default function Repsostas(props: RespostaProps) {
     return (
         <div className={styles.resposta}>
             <div className={styles.frente}>
-                <div className={styles.letra}>
+                <div className={styles.letra} 
+                style={{backgroundColor: props.corletra}}>
                     {props.letra}
                 </div>
                 <div className={styles.valor}>

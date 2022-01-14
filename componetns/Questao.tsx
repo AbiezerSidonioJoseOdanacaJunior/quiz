@@ -13,6 +13,7 @@ export default function Questao(props) {
     function renderizarRespostas() {
         return questao.respostas.map((resposta, i) =>{
             return <Repsostas 
+                key={i}
                 valor={resposta}
                 indice={i}
                 letra='A'
