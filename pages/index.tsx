@@ -3,20 +3,15 @@ import Botao from "../componetns/Botao";
 import Questao from "../componetns/Questao";
 import Questionario from "../componetns/Questionario";
 import QuestaoModel from "../model/questao";
-import RespostasModel from "../model/respostas";
-
-const questaoMock = new QuestaoModel(1, "Melhor cor?", [
-  RespostasModel.errada("Verde"),
-  RespostasModel.errada("Vermelha"),
-  RespostasModel.errada("Azul"),
-  RespostasModel.certa("Preta"),
-]);
+import { useRouter } from "next/router";
 
 const BASE_URL = 'http://localhost:3000/api'
 
 export default function Home() {
+const router = useRouter()
+
   const [idsQuestoes, setIdsQuestoes] = useState<number[]>([])
-  const [questao, setQeustao] = useState<QuestaoModel>(questaoMock)
+  const [questao, setQeustao] = useState<QuestaoModel>()
   const [respostaCerta, setRespostaCerta] = useState<number>(0)
 
   async function carregarIdsQuestoes() {
@@ -46,14 +41,38 @@ function questaoRespondida(questaoRespondida: QuestaoModel) {
   setRespostaCerta(respostaCerta + (acertou ? 1 : 0))
 }
 
-function irParaProximo() {
+function idProximaPergunta() {
+  if(questao) {
+    const proximoIndice = idsQuestoes.indexOf(questao.id) + 1
+    return idsQuestoes[proximoIndice]
+  }
+}
 
+function irParaProximo() {
+  const proximoId = idProximaPergunta()
+  proximoId ? irParaProximaQuestao(proximoId) : finalizar()
+
+}
+
+function irParaProximaQuestao(proximoId: number) {
+  carregarQuestao(proximoId)
+
+}
+
+function finalizar() {
+  router.push({
+    pathname: "/resultado",
+    query: {
+      total: idsQuestoes.length,
+      certas: respostaCerta
+    }
+  })
 }
 
   return (
       <Questionario 
       questao={questao} 
-      ultima={ false}
+      ultima={idProximaPergunta() === undefined}
       questaoRespondida={questaoRespondida}
       irParaProximo={irParaProximo}
        />
