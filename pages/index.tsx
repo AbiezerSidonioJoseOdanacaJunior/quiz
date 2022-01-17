@@ -24,9 +24,19 @@ export default function Home() {
     setIdsQuestoes(idsQuestoes)
   }
 
+  async function carregarQuestao(idQuestao: number) {
+    const resp = await fetch( `${BASE_URL}/questoes/${idQuestao}` )
+    const json = await resp.json()
+    console.log(json)
+  }
+
   useEffect(() => {
     carregarIdsQuestoes()
   }, [])
+
+  useEffect(() => {
+    idsQuestoes.length > 0 && carregarQuestao(idsQuestoes[0])
+  }, [idsQuestoes])
   
 function questaoRespondida(questa: QuestaoModel) {
 
