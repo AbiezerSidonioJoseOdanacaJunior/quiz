@@ -42,10 +42,8 @@ function questaoRespondida(questaoRespondida: QuestaoModel) {
 }
 
 function idProximaPergunta() {
-  if(questao) {
-    const proximoIndice = idsQuestoes.indexOf(questao.id) + 1
-    return idsQuestoes[proximoIndice]
-  }
+  const proximoIndice = idsQuestoes.indexOf(questao.id) + 1
+  return idsQuestoes[proximoIndice]
 }
 
 function irParaProximo() {
@@ -69,12 +67,13 @@ function finalizar() {
   })
 }
 
-  return (
-      <Questionario 
-      questao={questao} 
-      ultima={idProximaPergunta() === undefined}
-      questaoRespondida={questaoRespondida}
-      irParaProximo={irParaProximo}
-       />
-  );
+  return questao ? (
+    <Questionario 
+    questao={questao} 
+    ultima={idProximaPergunta() === undefined}
+    questaoRespondida={questaoRespondida}
+    irParaProximo={irParaProximo}
+     />
+  ) : false
+  
 }
