@@ -16,18 +16,20 @@ const BASE_URL = 'http://localhost:3000/api'
 
 export default function Home() {
   const [idsQuestoes, setIdsQuestoes] = useState<number[]>([])
-  const [questao, setQeustao] = useState(questaoMock)
+  const [questao, setQeustao] = useState<QuestaoModel>(questaoMock)
 
   async function carregarIdsQuestoes() {
-    const resp = await fetch( `${BASE_URL}/questionario` )
+    const resp = await fetch(`${BASE_URL}/questionario`)
     const idQuestoes = await resp.json()
+    
     setIdsQuestoes(idsQuestoes)
   }
 
   async function carregarQuestao(idQuestao: number) {
-    const resp = await fetch( `${BASE_URL}/questoes/${idQuestao}` )
+    const resp = await fetch(`${BASE_URL}/questoes/${idQuestao}`)
     const json = await resp.json()
-    console.log(json)
+    const novaQuestao = QuestaoModel.criarUsandoObjeto(json)
+    setQeustao(novaQuestao)
   }
 
   useEffect(() => {
