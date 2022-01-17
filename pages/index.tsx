@@ -21,7 +21,7 @@ export default function Home() {
 
   async function carregarIdsQuestoes() {
     const resp = await fetch(`${BASE_URL}/questionario`)
-    const idQuestoes = await resp.json()
+    const idsQuestoes = await resp.json()
     setIdsQuestoes(idsQuestoes)
   }
 
