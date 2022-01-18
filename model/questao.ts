@@ -50,6 +50,7 @@ export default class QuestaoModel {
             return deveRevelar ? resposta.revelar() : resposta
 
         })
+
         return new QuestaoModel( this.id, this.enuciado, respostas, acertou)
     }
 

@@ -37,7 +37,7 @@ const router = useRouter()
   
 function questaoRespondida(questaoRespondida: QuestaoModel) {
   setQeustao(questaoRespondida)
-  const acertou = questao.acertou
+  const acertou = questaoRespondida.acertou
   setRespostaCerta(respostaCerta + (acertou ? 1 : 0))
 }
 
