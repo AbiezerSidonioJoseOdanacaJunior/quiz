@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Botao from '../componetns/Botao';
 
 
-export default function resultado() {
+export default function() {
     const router = useRouter()
 
     const total = +router.query.total
